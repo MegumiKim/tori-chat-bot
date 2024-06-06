@@ -1,0 +1,253 @@
+:root {
+  --border-rad-lg: 15px;
+  --medium-light-text: #586e88;
+  --light-text: #fcfcfc;
+  --bg-dark: #051120;
+  --tori-pink: #fa4f55;
+  --tori-gray: #afafb8;
+  --dark--gray: #565555;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-size: large;
+}
+
+main {
+  background-color: #fff;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1em;
+}
+
+#logo {
+  max-width: 150px;
+  margin: auto;
+}
+
+/* chatbot elements */
+
+.chatbot-container {
+  flex: 3;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 2em 0;
+}
+
+.chatbot-conversation-wrapper {
+  overflow-y: hidden;
+  scrollbar-width: 0;
+  scrollbar-color: transparent transparent;
+  margin-bottom: 1em;
+}
+.chatbot-container > * {
+  padding: 0.5em;
+}
+
+.user-panel {
+  padding: 2em 0;
+  display: flex;
+  border-bottom: var(--tori-pink) solid 3px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+label {
+  color: gray;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  margin: 1em 0;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+}
+
+.clear-btn {
+  height: 2.5rem;
+  padding: 0 1em;
+  color: white;
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.clear-btn:hover {
+  border: 1px solid var(--tori-pink);
+  color: var(--tori-pink);
+  cursor: pointer;
+}
+.chatbot-conversation-container {
+  max-height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.speech-wrapper {
+  display: flex;
+  width: 100%;
+}
+.speech-wrapper-user {
+  justify-content: end;
+}
+
+.speech {
+  padding: 1em;
+  margin: 1em auto;
+  width: fit-content;
+  color: var(--light-text);
+  margin: 0;
+  border-radius: var(--border-rad-lg);
+  line-height: 2rem;
+}
+
+.speech:first-child {
+  margin-top: 0;
+}
+
+.speech-assistant {
+  background: #253b4b;
+  border-top-left-radius: 0;
+}
+
+.speech-user {
+  background: var(--dark--gray);
+  border-top-right-radius: 0;
+}
+
+.chatbot-input-container {
+  position: relative;
+  padding: 0;
+}
+
+.chatbot-input-container button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 1em;
+  padding: 0.8em;
+  width: fit-content;
+}
+
+input[type="text"],
+button {
+  background-color: transparent;
+  border: 1px solid var(--medium-light-text);
+  border-radius: 15px;
+  padding: 1em;
+  margin: auto;
+  width: 100%;
+}
+
+textarea {
+  color: var(--bg-dark);
+  border: 2px solid var(--tori-pink);
+  width: 100%;
+  height: 15vh;
+  border-radius: 16px;
+  background: none;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+input[type="text"] {
+  border: 2px solid var(--tori-pink);
+}
+/* text */
+
+h1 {
+  font-size: 3em;
+}
+
+h2,
+p {
+  color: var(--medium-light-text);
+}
+
+h2 {
+  font-size: 11px;
+  font-weight: 700;
+  grid-area: subtitle;
+  text-transform: uppercase;
+}
+
+button {
+  background-color: var(--tori-pink);
+  color: var(--light-text);
+  border: none;
+  border-radius: 15px;
+  padding: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  outline: 3px solid var(--tori-pink);
+  color: var(--tori-gray);
+}
+
+/*Loading  */
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 800px) {
+  main {
+    flex-direction: row;
+    margin: auto;
+    padding: 2em 0;
+  }
+
+  .chatbot-container {
+    padding: 2em;
+    border-left: var(--tori-pink) solid 3px;
+  }
+  .user-panel {
+    flex-direction: column;
+    border-left: none;
+    border-bottom: none;
+    max-width: 500px;
+    padding: 2em;
+    flex: 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .speech {
+    max-width: 70%;
+  }
+}
